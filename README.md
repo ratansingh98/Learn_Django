@@ -72,3 +72,6 @@ Here I learned:
 
     - **Template Inheritance**:
         We can use a base template for inherit its layout and add our logic into it. By using ```{% block content %} {% endblock %}```.
+
+    - **Adding Javascript and static files**:
+        - We can use ` <script src="{% static 'filename' %}"></script>` command in our html file to add/link static libraries and files.
