@@ -2,7 +2,7 @@
 
 The following are the project and courses I followed to learn it.
 
-- LinkedIn Course [Learning Django](https://www.linkedin.com/learning/learning-django-2) is taken to make project named **wisdompets**.
+1. LinkedIn Course [Learning Django](https://www.linkedin.com/learning/learning-django-2) is taken to make project named **wisdompets**.
 Here I learned:
     - **File Structure of project:** 
         - ***manage.py*** : Run commands for our project.
@@ -75,3 +75,26 @@ Here I learned:
 
     - **Adding Javascript and static files**:
         - We can use ` <script src="{% static 'filename' %}"></script>` command in our html file to add/link static libraries and files.
+
+2. LinkedIn Course [Building a Personal Portfolio with Django](https://www.linkedin.com/learning/building-a-personal-portfolio-with-django) is taken to make project named **portfolio**.
+    I created ticket website is a project which have individual apps like events, blog, accounts.
+    - **Installing postgres**:
+    Postgres is an object-relational database,this means that Postgres includes features like table inheritance and function overloading, which can be important to certain applications. Postgres also adheres more closely to SQL standards.
+    Download and install PostgreSQL from [here](https://www.postgresql.org/download/).
+
+    - **Commands of PSQL**:
+        - To create database use `CREATE DATABASE portfoliodb;`
+        - To connect with psql you will need to add these in **setting.py** 's DATABASE dictionary.
+            ```        
+            'ENGINE': 'django.db.backends.postgresql',
+            'NAME': '<DATABASE NAME>',
+            'USER': '<USER-Name',
+            'PASSWORD': '<PASSOWORD>',
+            'HOST': 'localhost', #Default
+            'POST': '5432', #Default
+            ```
+    - **Dealing with static files**:
+        - In older version static files can be added to urlpatterns using `+ static(settings.STATIC_URL, document_root =settings.STATIC_ROOT)`
+        - **Collectstatic** collects the static files into *STATIC_ROOT*.
+             ` python3 manage.py collectstatic`
+    - **get_list_or_404**: This is used view page, which checks if the primary key exists or not.
