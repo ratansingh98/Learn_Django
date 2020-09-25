@@ -98,3 +98,31 @@ Here I learned:
         - **Collectstatic** collects the static files into *STATIC_ROOT*.
              ` python3 manage.py collectstatic`
     - **get_list_or_404**: This is used view page, which checks if the primary key exists or not.
+
+3. LinkedIn Course [Django: Forms](https://www.linkedin.com/learning/django-forms) is taken to make project named **nandiasgarden**.   
+    - **Form**: It allow a visitor to do things like enter text, select options, manipulate objects or controls, and so on, and then send that information back to the server.
+
+    - **Methods**: There are 2 basic methods of form GET and POST.
+        - **Get**: It bundles the submitted data into a string, and uses this to compose a URL. It is suitable for things like a web search form, because the URLs that represent a GET request can easily be bookmarked, shared, or resubmitted.
+        - **POST**: In POST the browser bundles up the form data, encodes it for transmission, sends it to the server, and then receives back its response. It is used for secure operations like transaction with database, large quantities of data, or for binary data, such as an image.
+    
+    - **CSRF**: The CSRF middleware and template tag provides easy-to-use protection against Cross Site Request Forgeries. This type of attack occurs when a malicious website contains a link, a form button or some JavaScript that is intended to perform some action on your website, using the credentials of a logged-in user who visits the malicious site in their browser. 
+    To enable it use `<form method="post">{% csrf_token %}`.
+
+    - **Djnago Form**: Form can be create using python code, refer `form.py` in project folder. It is much cleaner way to making it.
+
+    - **Model Form**: If you’re building a database-driven app, chances are you’ll have forms that map closely to Django models.
+        - ```>>> from django.forms import ModelForm
+            >>> from myapp.models import Article
+
+            # Create the form class.
+            >>> class ArticleForm(ModelForm):
+            ...     class Meta:
+            ...         model = Article
+            ...         fields = ['pub_date', 'headline', 'content', 'reporter']```
+          
+        - **Widgets**: A widget is Django’s representation of an HTML input element. The widget handles the rendering of the HTML, and the extraction of data from a GET/POST dictionary that corresponds to the widget. Whenever you specify a field on a form, Django will use a default widget that is appropriate to the type of data that is to be displayed. 
+    
+        - **Formset**: A formset is a layer of abstraction to work with multiple forms on the same page. It can be best compared to a data grid.
+
+        - **Form style** We can change form view by providing functions as `<FORM>.as_<type>` in html.
