@@ -127,7 +127,7 @@ Here I learned:
 
         - **Form style** We can change form view by providing functions as `<FORM>.as_<type>` in html.
 
-3. LinkedIn Course [Test-Driven Development in Django](https://www.linkedin.com/learning/test-driven-development-in-django) is taken to learn fundamentals of testing and made project named **Testing**.
+4. LinkedIn Course [Test-Driven Development in Django](https://www.linkedin.com/learning/test-driven-development-in-django) is taken to learn fundamentals of testing and made project named **Testing**.
     - **Testing**: Software Testing is evaluation of the software against requirements gathered from users and system specifications. Testing is conducted at the phase level in software development life cycle or at module level in program code. Software testing comprises of Validation and Verification.
     There are two areas of test:
         - **Functional tests**: Deal with the way a user will interact with your project.
@@ -141,3 +141,21 @@ Here I learned:
     - **Test database** : `'TEST_NAME':os.path.join(BASE_DIR,'test_db.sqlite3')`, put this in database list to create and delete a dummy every time database executes.
 
     - **Ajax testing**: In ajax pages are not switched or redirected instead, data or components get updated. In that case, we have to use wait. `time.sleep(5)`. 
+
+
+5. Youtube playlist [Django Rest-framework](https://www.youtube.com/playlist?list=PLgCYzUzKIBE9Pi8wtx8g55fExDAPXBsbV) is followed to learn about it. Project name is **rest_project**.
+
+    - **REST** is acronym for REpresentational State Transfer. It is an architectural style that defines a set of rules in order to create Web Services. In a client-server communication, REST suggests to create an object of the data requested by the client and send the values of the object in response to the user. 
+    - **Setting Up** : `pip install djangorestframework` and add `rest_framework` in INSTALLED_APPS list of settings.py.
+
+    - **Serializers**: Serializers allow complex data such as querysets and model instances to be converted to native Python datatypes that can then be easily rendered into JSON, XML or other content types. 
+    There are 2 ways of doing it, using **ModelSerializers**  and **Serializers class**.
+        - **SnippetSerializer** serializes data into dictionary.
+            example : `{'id': 2, 'title': '', 'code': 'print("hello, world")\n', 'linenos': False, 'language': 'python', 'style': 'friendly'}`
+
+        - **JSONRenderer**  renders the data into json.
+            example : `# b'{"id": 2, "title": "", "code": "print(\\"hello, world\\")\\n", "linenos": false, "language": "python", "style": "friendly"}'`
+    
+    - **Deserialization**: Converting parse a stream into Python native datatypes.
+        - Using **JSONParser** convert data stream to python object.
+            Example: `# <Snippet: Snippet object>`
