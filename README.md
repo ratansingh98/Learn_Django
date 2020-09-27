@@ -126,3 +126,18 @@ Here I learned:
         - **Formset**: A formset is a layer of abstraction to work with multiple forms on the same page. It can be best compared to a data grid.
 
         - **Form style** We can change form view by providing functions as `<FORM>.as_<type>` in html.
+
+3. LinkedIn Course [Test-Driven Development in Django](https://www.linkedin.com/learning/test-driven-development-in-django) is taken to learn fundamentals of testing and made project named **Testing**.
+    - **Testing**: Software Testing is evaluation of the software against requirements gathered from users and system specifications. Testing is conducted at the phase level in software development life cycle or at module level in program code. Software testing comprises of Validation and Verification.
+    There are two areas of test:
+        - **Functional tests**: Deal with the way a user will interact with your project.
+        - **Unit tests**: Ensure that small pieces of your project are working as they should.
+
+    - **Selenium**: Selenium is a portable framework for testing web applications. Selenium provides a playback tool for automated functional tests without the need to learn a test scripting language.
+        - **Install** using `sudo apt install firefox-geckodriver` for firefox. and `pip install selenium`
+
+    - **Django Test Command** : `python3 manage.py test`.
+    
+    - **Test database** : `'TEST_NAME':os.path.join(BASE_DIR,'test_db.sqlite3')`, put this in database list to create and delete a dummy every time database executes.
+
+    - **Ajax testing**: In ajax pages are not switched or redirected instead, data or components get updated. In that case, we have to use wait. `time.sleep(5)`. 
