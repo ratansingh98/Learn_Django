@@ -143,7 +143,7 @@ Here I learned:
     - **Ajax testing**: In ajax pages are not switched or redirected instead, data or components get updated. In that case, we have to use wait. `time.sleep(5)`. 
 
 
-5. Youtube playlist [Django Rest-framework](https://www.youtube.com/playlist?list=PLgCYzUzKIBE9Pi8wtx8g55fExDAPXBsbV) is followed to learn about it. Project name is **rest_project**.
+5. [Django rest framework](https://www.django-rest-framework.org/tutorial/quickstart/) docs is followed to learn about it. Project name is **rest_project**.
 
     - **REST** is acronym for REpresentational State Transfer. It is an architectural style that defines a set of rules in order to create Web Services. In a client-server communication, REST suggests to create an object of the data requested by the client and send the values of the object in response to the user. 
     - **Setting Up** : `pip install djangorestframework` and add `rest_framework` in INSTALLED_APPS list of settings.py.
@@ -156,6 +156,47 @@ Here I learned:
         - **JSONRenderer**  renders the data into json.
             example : `# b'{"id": 2, "title": "", "code": "print(\\"hello, world\\")\\n", "linenos": false, "language": "python", "style": "friendly"}'`
     
-    - **Deserialization**: Converting parse a stream into Python native datatypes.
-        - Using **JSONParser** convert data stream to python object.
-            Example: `# <Snippet: Snippet object>`
+        - **Deserialization**: Converting parse a stream into Python native datatypes.
+            - Using **JSONParser** convert data stream to python object.
+                Example: `# <Snippet: Snippet object>`
+    - **Requests and Responses**: 
+        - **Request objects:** REST framework introduces a Request object that extends the regular HttpRequest, and provides more flexible request parsing. The core functionality of the Request object is the `request.data` attribute, which is similar to `request.POST`.
+
+        - **Response objects:** REST framework also introduces a Response object, which is a type of TemplateResponse that takes unrendered content and uses content negotiation to determine the correct content type to return to the client.
+
+        - **Status Code**;  REST framework provides more explicit identifiers for each status code, such as HTTP_400_BAD_REQUEST in the status module. It's a good idea to use these throughout rather than using numeric identifiers. For more refer [here](https://www.restapitutorial.com/httpstatuscodes.html).
+
+       - **API views**:  The wrappers also provide behavior such as returning 405 Method Not Allowed responses when appropriate, and handling any ParseError exceptions that occur when accessing request.data with malformed input.
+            REST framework provides two wrappers you can use to write API views.
+
+            - The `@api_view` decorator for working with function based views.
+            - The `APIView` class for working with class-based views.
+
+        - **Format suffixes**: Using format suffixes gives us URLs that explicitly refer to a given format, and means our API will be able to handle URLs. SUch as `http://127.0.0.1:8000/snippets.json` and `http://127.0.0.1:8000/snippets.api`.
+
+    - **Class Based Views**:
+        We can also write our API views using class-based views, rather than function based views. 
+
+        - Using **Class based views**: It looks similar to traditional way of defining everything.
+
+        - Using **mixins**: The create/retrieve/update/delete operations  are pretty similar for any model-backed API views we create. Those bits of common behaviour are implemented in REST framework's mixin classes.
+
+        - Using **generic class-based views**: REST framework provides a set of already mixed-in generic views that we can use to trim down our views.py module even more. Shortest and best implementation.
+    
+    - **Authentication & Permissions**: We have to restrict users for performing any operations using api. So for that we use Authentications and permissions in our application.
+        - **Adding information to our model**: Only the allowed user have access to view his data, for that we need to add relation to it.
+
+        - **Adding endpoints for our User models**: To perform CRUD operations on user.
+
+        - **Associating Snippets with Users**: We need to bind our snippets data to users functionality.
+        - **Updating our serializer**: Add the owner field to the serializer definition in serializers.py
+
+        - **Adding required permissions to views**: Now that code snippets are associated with users, we want to make sure that only authenticated users are able to create, update and delete code snippets.
+
+        - **Adding login to the Browsable API**: We can add a login view for use with the browsable API, by editing the URLconf in our project-level urls.py file.
+
+        - **Object level permissions**: All code snippets to be visible to anyone, but also make sure that only the user that created a code snippet is able to update or delete it. We to need to create a custom permission.
+
+    - **Relationships & Hyperlinked APIs**: We improved the cohesion and discoverability of our API, by instead using hyperlinking for relationships.
+        - **Creating an endpoint for the root of our API**
+        - **Creating an endpoint for the highlighted snippets**
