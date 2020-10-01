@@ -200,3 +200,21 @@ Here I learned:
     - **Relationships & Hyperlinked APIs**: We improved the cohesion and discoverability of our API, by instead using hyperlinking for relationships.
         - **Creating an endpoint for the root of our API**
         - **Creating an endpoint for the highlighted snippets**
+        - **Hyperlinking the API**:  We'll modify our serializers to extend `HyperlinkedModelSerializer` instead of the existing `ModelSerializer`.
+        The HyperlinkedModelSerializer has the following differences from ModelSerializer:
+
+            - It does not include the id field by default.
+            - It includes a url field, using HyperlinkedIdentityField.
+            - Relationships use HyperlinkedRelatedField, instead of PrimaryKeyRelatedField.
+        
+    - **Adding pagination**: We can change the default list style to use pagination, by modifying our `tutorial/settings.py` file slightly. Add the following setting:
+        ```
+        REST_FRAMEWORK = {
+        'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
+        'PAGE_SIZE': 10
+        }
+        ```
+
+    - **ViewSets & Routers**: 
+        - **ViewSet** classes are almost the same thing as View classes, except that they provide operations such as read, or update, and not method handlers such as get or put.
+        - **Router** class which handles the complexities of defining the URL conf for you.
